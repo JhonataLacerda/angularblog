@@ -1,0 +1,68 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form [formGroup]="formAuth" (ngSubmit)="submitForm()">
+
+                <h1 style="padding-left: 50px;">Administrativo</h1>
+                <div style="align-items:center; padding-left:118px;  align-content: center;">
+                <p class="text-medium-emphasis">Acesse sua conta!</p>
+              </div>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input
+                    formControlName="email"
+                    type="email"
+                    id="form2Example11"
+                    class="form-control"
+                    placeholder="Endereço de E-mail"
+                  />
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    formControlName="password"
+                    type="password"
+                    id="form2Example22"
+                    placeholder="Preencha com sua senha"
+                    class="form-control"
+                  />
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button
+                      [disabled]="formAuth.invalid"
+                      class="px-4"
+                      color="primary"
+                      class="btn btn-primary"
+                      style="width: 100%;"
+                    >
+                      Entrar
+                    </button>
+                  </c-col>
+                  <c-col class="text-right" xs="6">
+                    <button type="button" cButton class="px-0" color="link">
+                      Esqueceu a senha?
+                    </button>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+          <c-card style="background-image: url('./assets/images/developer.jpg'
+
+          ); background-size: cover;">
+
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
