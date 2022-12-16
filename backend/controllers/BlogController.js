@@ -65,9 +65,7 @@ module.exports = class BlogController {
 
     static async getAll(req, res){
         const blog = await Blog.find().sort('-createdAt')
-        res.status(200).json({
-            blog:blog
-        })
+        res.status(200).json(blog)
     }
     static async getAllUserPosts(req, res) {
 
@@ -75,9 +73,7 @@ module.exports = class BlogController {
         const user = await getUserByToken(token)
 
         const blog = await Blog.find({ 'user._id': user._id }).sort('-createdAt')
-        res.status(200).json({
-            blog: blog
-        })
+        res.status(200).json(blog)
 
 
     }

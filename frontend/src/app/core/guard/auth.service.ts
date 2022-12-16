@@ -71,6 +71,12 @@ export class AuthService {
     return this.http.get<any>(`${this.url}/users/usuarios`);
    }
 
+   fetchPosts():Observable<any>{
+
+    return this.http.get<any>(`${this.url}/blog/myposts`);
+
+   }
+
 
 
 

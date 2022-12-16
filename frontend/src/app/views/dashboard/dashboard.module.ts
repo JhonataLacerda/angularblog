@@ -1,6 +1,7 @@
+import { SearchPipe } from './search.pipe';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
   AvatarModule,
@@ -23,6 +24,7 @@ import { DashboardComponent } from './dashboard.component';
 import { WidgetsModule } from '../widgets/widgets.module';
 import { AuthInterceptor } from 'src/app/core/guard/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -44,6 +46,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AvatarModule,
     TableModule,
     WidgetsModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
  providers:[
     {
@@ -55,7 +60,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
  ],
 
 
-  declarations: [DashboardComponent]
+  declarations: [
+
+    DashboardComponent,
+    SearchPipe
+
+  ]
 })
 export class DashboardModule {
 }
