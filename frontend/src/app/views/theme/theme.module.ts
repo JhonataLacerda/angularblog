@@ -7,8 +7,12 @@ import { IconModule } from '@coreui/icons-angular';
 import { ColorsComponent, ThemeColorComponent } from './colors.component';
 import { TypographyComponent } from './typography.component';
 
+import { HttpClientModule} from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 // Theme Routing
 import { ThemeRoutingModule } from './theme-routing.module';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,7 +23,11 @@ import { ThemeRoutingModule } from './theme-routing.module';
     UtilitiesModule,
     IconModule,
     NavModule,
-    TabsModule
+    TabsModule,
+    HttpClientModule,
+    AngularEditorModule,
+    FormsModule
+
   ],
   declarations: [
     ColorsComponent,

@@ -5,15 +5,12 @@ const Blog = mongoose.model('Blog',
       new Schema({
         titulo:{
             type:String,
-            required:true
         },
         texto:{
             type:String,
-            required:true
         },
         images:{
-            type:Array,
-            require:true
+            type:Array
         },
         user: Object,
         

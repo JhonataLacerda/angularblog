@@ -3,11 +3,47 @@ import { DOCUMENT } from '@angular/common';
 
 import { getStyle, rgbToHex } from '@coreui/utils/src';
 
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+
+
+
 @Component({
   templateUrl: 'colors.component.html'
 })
+
 export class ColorsComponent implements OnInit, AfterViewInit {
 
+  htmlContent = '';
+  
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [
+      ['bold']
+      ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  };
+ 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2
@@ -69,5 +105,9 @@ export class ThemeColorComponent implements OnInit {
       [`bg-${this.color}`]: !!this.color
     };
   }
+
+  
 }
+
+
 

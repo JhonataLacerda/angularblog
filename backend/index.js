@@ -22,5 +22,4 @@ app.use((req, res, next) => {
     app.use(cors());
     next();
 });
-
 app.listen(8080)

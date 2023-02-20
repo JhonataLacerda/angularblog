@@ -11,6 +11,13 @@ import { Page500Component } from './page500/page500.component';
 import { ButtonModule, CardModule, FormModule, GridModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostsComponent } from './posts/posts.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
+
+
+
 
 
 @NgModule({
@@ -18,7 +25,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     Page404Component,
-    Page500Component
+    Page500Component,
+    PostsComponent,
+    
   ],
   providers: [AuthGuard],
 
@@ -32,6 +41,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularEditorModule,
+    CKEditorModule
+
+    
+
   ]
 })
 export class PagesModule {

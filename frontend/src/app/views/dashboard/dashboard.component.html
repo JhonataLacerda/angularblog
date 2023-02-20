@@ -43,12 +43,12 @@
           </div>
         </nav>
         <div style="width: 30rem; height: rem; margin-left: 15px">
-          <div
+          <div 
             class="card"
             style="margin-top: 10px; margin-bottom: 10px; border: none"
           >
-            <table>
-              <tr
+            <table >
+              <tr 
                 *ngFor="
                   let post of POSTS
                     | search : searchText
@@ -70,12 +70,12 @@
                 </td>
                 <td>
                   <div class="card-body">
-                    <p
+                    <div 
                       class="card-text"
                       [ngClass]="{ limitTextHeight: isReadMore }"
                     >
-                      {{ post.texto }}
-                    </p>
+                    <p innerHtml="{{post.texto}}"></p>
+                  </div>
                     <button type="button" href="#">Ler mais</button>
                   </div>
                 </td>

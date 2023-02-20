@@ -47,7 +47,7 @@ module.exports = class BlogController {
         })
 
     
-        images.map((image) => {
+        images?.map((image) => {
             blog.images.push(image.filename)
         })
         try {

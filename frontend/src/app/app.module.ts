@@ -6,6 +6,9 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy, registerL
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { FormsModule } from '@angular/forms';
+
 
 import localePt from '@angular/common/locales/pt';
 
@@ -53,6 +56,7 @@ import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
 };
@@ -96,7 +100,9 @@ registerLocaleData(localePt, 'pt');
     ListGroupModule,
     CardModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AngularEditorModule,
+    FormsModule
   ],
   providers: [
     {

@@ -50,8 +50,6 @@ export class AuthService {
     confirmpassword:string }):  Observable<any> {
       return this.http.post<{ token: string }>(`${this.url}/users/cadastro`, payload).pipe(
         map((res) => {
-          localStorage.removeItem('access_token');
-          localStorage.setItem('access_token', res.token);
           alert("Cadastro realizado com sucesso!")
           return this.router.navigate(['register']);
         }),
@@ -65,6 +63,9 @@ export class AuthService {
         })
       );
     }
+
+
+
 
    fetchUsers():Observable<any>{
 
