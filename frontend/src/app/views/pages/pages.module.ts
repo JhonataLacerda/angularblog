@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostsComponent } from './posts/posts.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { PostagemComponent } from './postagem/postagem.component';
 
 
 
@@ -27,6 +28,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     Page404Component,
     Page500Component,
     PostsComponent,
+    PostagemComponent,
     
   ],
   providers: [AuthGuard],

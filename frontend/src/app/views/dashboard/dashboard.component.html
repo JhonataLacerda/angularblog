@@ -1,28 +1,20 @@
 <div style="display: flex">
-  <div
-    style="
+  <div class="mb-4 card" style="
       width: 40%;
       margin-left: -100px;
       align-content: center;
       height: 100%;
       background-color: #fff;
       margin-right: 10px;
-    "
-  >
-    <div>
-      <div style="display: block; margin-right: 0%">
-        <nav class="navbar navbar-expand-lg bg-dark">
+    ">
+    
+     
+        <nav class="navbar navbar-expand-lg bg-dark mb-4 card">
           <div class="container-fluid">
             <a class="navbar-brand" style="color: #fff" href="#">Posts</a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-coreui-toggle="collapse"
-              data-coreui-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
+            <button class="navbar-toggler" type="button" data-coreui-toggle="collapse"
+              data-coreui-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -30,26 +22,16 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
               <div class="d-flex">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Buscar"
-                  aria-label="Search"
-                  [(ngModel)]="searchText"
-                  (ngModelChange)="(onTableDataChange)"
-                />
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"
+                  [(ngModel)]="searchText" (ngModelChange)="(onTableDataChange)" />
               </div>
             </div>
           </div>
         </nav>
         <div style="width: 30rem; height: rem; margin-left: 15px">
-          <div 
-            class="card"
-            style="margin-top: 10px; margin-bottom: 10px; border: none"
-          >
-            <table >
-              <tr 
-                *ngFor="
+          <div class="card" style="margin-top: 10px; margin-bottom: 10px; border: none">
+            <table>
+              <tr *ngFor="
                   let post of POSTS
                     | search : searchText
                     | paginate
@@ -58,39 +40,27 @@
                           currentPage: page,
                           totalItems: count
                         }
-                "
-              >
+                ">
                 <td>
-                  <img
-                    style="width: 250px; height: 150px"
-                    src="http://localhost:8080/images/blog/{{ post.images[0] }}"
-                    class="card-img-top"
-                    alt="Sunset Over the Sea"
-                  />
+                  <img style="width: 250px; height: 150px" src="http://localhost:8080/images/blog/{{ post.images[0] }}"
+                    class="card-img-top" alt="Sunset Over the Sea" />
                 </td>
                 <td>
                   <div class="card-body">
-                    <div 
-                      class="card-text"
-                      [ngClass]="{ limitTextHeight: isReadMore }"
-                    >
-                    <p innerHtml="{{post.texto}}"></p>
-                  </div>
-                    <button type="button" href="#">Ler mais</button>
+                    <div class="card-text" [ngClass]="{ limitTextHeight: isReadMore }">
+                      <p innerHtml="{{post.texto}}"></p>
+                    </div>
+                    <a href="javascript: void(0);" [routerLink]="['/post', post._id]" routerLinkActive="router-link-active" >Ler mais</a>
                   </div>
                 </td>
               </tr>
             </table>
-            <pagination-controls
-              previousLabel="Anterior"
-              nextLabel="próximo"
-              (pageChange)="onTableDataChange($event)"
-            >
+            <pagination-controls previousLabel="Anterior" nextLabel="próximo" (pageChange)="onTableDataChange($event)">
             </pagination-controls>
           </div>
         </div>
-      </div>
-    </div>
+    
+
   </div>
 
   <div>
@@ -109,61 +79,23 @@
             </button>
             <form [formGroup]="trafficRadioGroup">
               <c-button-group class="float-end me-3" role="group">
-                <input
-                  class="btn-check"
-                  formControlName="trafficRadio"
-                  type="radio"
-                  value="Day"
-                />
-                <label
-                  (click)="setTrafficPeriod('Day')"
-                  cButton
-                  cFormCheckLabel
-                  color="secondary"
-                  variant="outline"
-                  >Day</label
-                >
+                <input class="btn-check" formControlName="trafficRadio" type="radio" value="Day" />
+                <label (click)="setTrafficPeriod('Day')" cButton cFormCheckLabel color="secondary"
+                  variant="outline">Day</label>
 
-                <input
-                  class="btn-check"
-                  formControlName="trafficRadio"
-                  type="radio"
-                  value="Month"
-                />
-                <label
-                  (click)="setTrafficPeriod('Month')"
-                  cButton
-                  cFormCheckLabel
-                  color="secondary"
-                  variant="outline"
-                  >Month</label
-                >
+                <input class="btn-check" formControlName="trafficRadio" type="radio" value="Month" />
+                <label (click)="setTrafficPeriod('Month')" cButton cFormCheckLabel color="secondary"
+                  variant="outline">Month</label>
 
-                <input
-                  class="btn-check"
-                  formControlName="trafficRadio"
-                  type="radio"
-                  value="Year"
-                />
-                <label
-                  (click)="setTrafficPeriod('Year')"
-                  cButton
-                  cFormCheckLabel
-                  color="secondary"
-                  variant="outline"
-                  >Year</label
-                >
+                <input class="btn-check" formControlName="trafficRadio" type="radio" value="Year" />
+                <label (click)="setTrafficPeriod('Year')" cButton cFormCheckLabel color="secondary"
+                  variant="outline">Year</label>
               </c-button-group>
             </form>
           </c-col>
         </c-row>
-        <c-chart
-          [data]="mainChart.data"
-          [height]="300"
-          [ngStyle]="{ 'marginTop.px': 40 }"
-          [options]="mainChart.options"
-          [type]="mainChart.type"
-        >
+        <c-chart [data]="mainChart.data" [height]="300" [ngStyle]="{ 'marginTop.px': 40 }" [options]="mainChart.options"
+          [type]="mainChart.type">
           Main chart
         </c-chart>
       </c-card-body>
@@ -219,17 +151,13 @@
               <c-col md="6" xl="6" xs="12">
                 <c-row>
                   <c-col sm="6">
-                    <div
-                      class="border-start border-start-4 border-start-info py-1 px-3 mb-3"
-                    >
+                    <div class="border-start border-start-4 border-start-info py-1 px-3 mb-3">
                       <div class="text-medium-emphasis small">New Clients</div>
                       <div class="fs-5 fw-semibold">9,123</div>
                     </div>
                   </c-col>
                   <c-col sm="6">
-                    <div
-                      class="border-start border-start-4 border-start-danger py-1 px-3 mb-3"
-                    >
+                    <div class="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                       <div class="text-medium-emphasis small">
                         Recurring Clients
                       </div>
@@ -249,10 +177,7 @@
                       <c-progress-bar color="info" value="34"></c-progress-bar>
                     </c-progress>
                     <c-progress thin>
-                      <c-progress-bar
-                        color="danger"
-                        value="78"
-                      ></c-progress-bar>
+                      <c-progress-bar color="danger" value="78"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
@@ -265,10 +190,7 @@
                       <c-progress-bar color="info" value="56"></c-progress-bar>
                     </c-progress>
                     <c-progress thin>
-                      <c-progress-bar
-                        color="danger"
-                        value="94"
-                      ></c-progress-bar>
+                      <c-progress-bar color="danger" value="94"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
@@ -281,10 +203,7 @@
                       <c-progress-bar color="info" value="12"></c-progress-bar>
                     </c-progress>
                     <c-progress thin>
-                      <c-progress-bar
-                        color="danger"
-                        value="67"
-                      ></c-progress-bar>
+                      <c-progress-bar color="danger" value="67"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
@@ -297,10 +216,7 @@
                       <c-progress-bar color="info" value="43"></c-progress-bar>
                     </c-progress>
                     <c-progress thin>
-                      <c-progress-bar
-                        color="danger"
-                        value="91"
-                      ></c-progress-bar>
+                      <c-progress-bar color="danger" value="91"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
@@ -313,10 +229,7 @@
                       <c-progress-bar color="info" value="22"></c-progress-bar>
                     </c-progress>
                     <c-progress thin>
-                      <c-progress-bar
-                        color="danger"
-                        value="73"
-                      ></c-progress-bar>
+                      <c-progress-bar color="danger" value="73"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
@@ -329,10 +242,7 @@
                       <c-progress-bar color="info" value="53"></c-progress-bar>
                     </c-progress>
                     <c-progress thin>
-                      <c-progress-bar
-                        color="danger"
-                        value="82"
-                      ></c-progress-bar>
+                      <c-progress-bar color="danger" value="82"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
@@ -345,26 +255,19 @@
                       <c-progress-bar color="info" value="9"></c-progress-bar>
                     </c-progress>
                     <c-progress thin>
-                      <c-progress-bar
-                        color="danger"
-                        value="69"
-                      ></c-progress-bar>
+                      <c-progress-bar color="danger" value="69"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
                 <div class="legend text-center" ngPreserveWhitespaces>
                   <small>
                     <sup>
-                      <span class="badge badge-pill badge-sm bg-info"
-                        >&nbsp;</span
-                      >
+                      <span class="badge badge-pill badge-sm bg-info">&nbsp;</span>
                     </sup>
                     <span>New clients</span>
                     &nbsp;&nbsp;
                     <sup>
-                      <span class="badge badge-pill badge-sm bg-danger"
-                        >&nbsp;</span
-                      >
+                      <span class="badge badge-pill badge-sm bg-danger">&nbsp;</span>
                     </sup>
                     <span>Recurring clients</span>
                   </small>
@@ -374,17 +277,13 @@
               <c-col md="6" xl="6" xs="12">
                 <c-row>
                   <c-col sm="6">
-                    <div
-                      class="border-start border-start-4 border-start-warning py-1 px-3 mb-3"
-                    >
+                    <div class="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
                       <div class="text-medium-emphasis small">Page views</div>
                       <div class="fs-5 fw-semibold">78,623</div>
                     </div>
                   </c-col>
                   <c-col sm="6">
-                    <div
-                      class="border-start border-start-4 border-start-success py-1 px-3 mb-3"
-                    >
+                    <div class="border-start border-start-4 border-start-success py-1 px-3 mb-3">
                       <div class="text-medium-emphasis small">Organic</div>
                       <div class="fs-5 fw-semibold">49,123</div>
                     </div>
@@ -401,29 +300,19 @@
                   </div>
                   <div class="progress-group-bars">
                     <c-progress thin>
-                      <c-progress-bar
-                        color="warning"
-                        value="43"
-                      ></c-progress-bar>
+                      <c-progress-bar color="warning" value="43"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
                 <div class="progress-group mb-5">
                   <div class="progress-group-header">
-                    <svg
-                      cIcon
-                      class="icon icon-lg me-2"
-                      name="cilUserFemale"
-                    ></svg>
+                    <svg cIcon class="icon icon-lg me-2" name="cilUserFemale"></svg>
                     <span>Female</span>
                     <span class="ms-auto font-semibold">37%</span>
                   </div>
                   <div class="progress-group-bars">
                     <c-progress thin>
-                      <c-progress-bar
-                        color="warning"
-                        value="37"
-                      ></c-progress-bar>
+                      <c-progress-bar color="warning" value="37"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
@@ -439,20 +328,13 @@
                   </div>
                   <div class="progress-group-bars">
                     <c-progress thin>
-                      <c-progress-bar
-                        color="success"
-                        value="56"
-                      ></c-progress-bar>
+                      <c-progress-bar color="success" value="56"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
                 <div class="progress-group">
                   <div class="progress-group-header">
-                    <svg
-                      cIcon
-                      class="icon icon-lg me-2"
-                      name="cibFacebook"
-                    ></svg>
+                    <svg cIcon class="icon icon-lg me-2" name="cibFacebook"></svg>
                     <span>Facebook</span>
                     <span class="ms-auto font-semibold">
                       51,223
@@ -461,20 +343,13 @@
                   </div>
                   <div class="progress-group-bars">
                     <c-progress thin>
-                      <c-progress-bar
-                        color="success"
-                        value="15"
-                      ></c-progress-bar>
+                      <c-progress-bar color="success" value="15"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
                 <div class="progress-group">
                   <div class="progress-group-header">
-                    <svg
-                      cIcon
-                      class="icon icon-lg me-2"
-                      name="cibTwitter"
-                    ></svg>
+                    <svg cIcon class="icon icon-lg me-2" name="cibTwitter"></svg>
                     <span>Twitter</span>
                     <span class="ms-auto font-semibold">
                       37,564
@@ -483,20 +358,13 @@
                   </div>
                   <div class="progress-group-bars">
                     <c-progress thin>
-                      <c-progress-bar
-                        color="success"
-                        value="11"
-                      ></c-progress-bar>
+                      <c-progress-bar color="success" value="11"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
                 <div class="progress-group">
                   <div class="progress-group-header">
-                    <svg
-                      cIcon
-                      class="icon icon-lg me-2"
-                      name="cibLinkedin"
-                    ></svg>
+                    <svg cIcon class="icon icon-lg me-2" name="cibLinkedin"></svg>
                     <span>LinkedIn</span>
                     <span class="ms-auto font-semibold">
                       27,319
@@ -505,21 +373,12 @@
                   </div>
                   <div class="progress-group-bars">
                     <c-progress thin>
-                      <c-progress-bar
-                        color="success"
-                        value="8"
-                      ></c-progress-bar>
+                      <c-progress-bar color="success" value="8"></c-progress-bar>
                     </c-progress>
                   </div>
                 </div>
                 <div class="divider d-flex justify-content-center">
-                  <button
-                    cButton
-                    class="text-muted btn-link"
-                    color="transparent"
-                    size="sm"
-                    type="button"
-                  >
+                  <button cButton class="text-muted btn-link" color="transparent" size="sm" type="button">
                     <svg cIcon name="cil-options"></svg>
                   </button>
                 </div>
@@ -537,14 +396,7 @@
     <c-card class="mb-4">
       <c-card-header>Users</c-card-header>
       <c-card-body>
-        <table
-          [hover]="true"
-          [responsive]="true"
-          [striped]="true"
-          align="middle"
-          cTable
-          class="mb-0 border"
-        >
+        <table [hover]="true" [responsive]="true" [striped]="true" align="middle" cTable class="mb-0 border">
           <thead cTableColor="light">
             <tr>
               <th class="text-center">
@@ -560,10 +412,7 @@
           <tbody>
             <tr *ngFor="let user of allUsers; index as i">
               <td class="text-center">
-                <c-avatar
-                  size="md"
-                  src="http://localhost:8080/images/users/{{ user.image }}"
-                ></c-avatar>
+                <c-avatar size="md" src="http://localhost:8080/images/users/{{ user.image }}"></c-avatar>
               </td>
               <td>
                 <div>

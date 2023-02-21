@@ -79,7 +79,11 @@ export class AuthService {
    }
 
 
-
+   singlePage(id:string):Observable<any>{
+  
+    return this.http.get<any>(this.url+'/blog/'+id);
+  
+  }
 
     }
 

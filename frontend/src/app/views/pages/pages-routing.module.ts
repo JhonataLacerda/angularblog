@@ -6,6 +6,7 @@ import { Page500Component } from './page500/page500.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostagemComponent } from './postagem/postagem.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
     data: {
       title: 'Page 404'
     }
+  },
+  {
+    path:'post/:id',
+    component:PostagemComponent
   },
   {
     path: '500',
