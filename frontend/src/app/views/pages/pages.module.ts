@@ -15,14 +15,10 @@ import { PostsComponent } from './posts/posts.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { PostagemComponent } from './postagem/postagem.component';
-
-
-
-
-
+import {HeaderMenuComponent} from '../../containers/default-layout'
 
 @NgModule({
-  declarations: [
+  declarations: [HeaderMenuComponent,
     LoginComponent,
     RegisterComponent,
     Page404Component,
@@ -52,3 +48,6 @@ import { PostagemComponent } from './postagem/postagem.component';
 })
 export class PagesModule {
 }
+
+
+

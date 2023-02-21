@@ -27,8 +27,6 @@ fetchById(){
 return  this.auth.singlePage(this.router.snapshot.params['id']).subscribe((res)=>{
       this.ALLPOSTS= res;
 
-      console.log(this.ALLPOSTS);
-
   })
 }
 

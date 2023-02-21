@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    background-color: #00276c;
+    color:white;
+}
+
+body {
+    margin: 0;
+}
+
+
+.imgu{
+    margin-top: 0px;
+    margin-bottom: 13px;
+    border-radius: 50%;
+    max-width:60px;
+    max-width:60px;
+}
+
+header {
+ 
+    padding-top: 0%;
+    background-size: cover;
+    font-family: 'Sucrose Bold Two';
+}
+
+header h1 {
+
+    position: static;
+    padding-top: 150px;
+
+    font-size: 3vw;
+    line-height: .8;
+
+    text-align: center;
+}
+
+header h5 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+header img {
+    margin-top: 2rem;
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+}
+
+header h1 span {
+    display: block;
+    font-size: 8.75vw;
+}
+
+main {
+    background: #00276c;
+    color:white;
+
+    font-family: 'IM Fell French Canon Pro';
+    font-size: 1.4rem;
+    padding: 2rem 25%;
+    line-height: 1.6;
+    
+    
+}
+
+
+
+@media all and (max-width: 400px) {
+    main {
+        padding: 2rem;
+    }
+}

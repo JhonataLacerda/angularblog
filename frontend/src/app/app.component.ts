@@ -12,7 +12,7 @@ import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
-  title = 'CoreUI Free Angular Admin Template';
+  title = '';
 
   constructor(
     private router: Router,

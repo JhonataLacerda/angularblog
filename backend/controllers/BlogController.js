@@ -46,15 +46,16 @@ module.exports = class BlogController {
             },
         })
 
-    
+
         images?.map((image) => {
             blog.images.push(image.filename)
         })
         try {
             const newPost = await blog.save()
-            res.status(200).json({ 
-                message: 'Post cadastrado com sucesso!' ,
-                newPost,})
+            res.status(200).json({
+                message: 'Post cadastrado com sucesso!',
+                newPost,
+            })
         } catch (error) {
             res.status(500).json({
                 message: error
@@ -63,7 +64,7 @@ module.exports = class BlogController {
 
     }
 
-    static async getAll(req, res){
+    static async getAll(req, res) {
         const blog = await Blog.find().sort('-createdAt')
         res.status(200).json(blog)
     }
@@ -80,6 +81,8 @@ module.exports = class BlogController {
 
     static async getPostById(req, res) {
         const id = req.params.id
+
+        
         if (!ObjectId.isValid(id)) {
             res.status(422).json({
                 message: "ID INVÁLIDO!"
@@ -89,22 +92,29 @@ module.exports = class BlogController {
 
         const blog = await Blog.findOne({ _id: id })
 
-        if (!blog) {
-            res.status(404).json({
-                message: "Post não encontrado!"
+        if (blog) {
+            res.status(200).json({
+                blog: blog
             })
-
             
         }
-        res.status(200).json({
-            blog: blog
-        })
+        else{
+            res.status(404).json({
+                message:"Post não encontrado!"
+            })
+        }
+
+       
+
+
+
+
     }
 
     static async removeBlogById(req, res) {
         const id = req.params.id
 
-        if(!ObjectId.isValid(id)) {
+        if (!ObjectId.isValid(id)) {
             res.status(422).json({
                 message: "ID INVÁLIDO!"
             })
@@ -144,7 +154,7 @@ module.exports = class BlogController {
         const images = req.files
         const updatedData = {}
 
-        if(!ObjectId.isValid(id)) {
+        if (!ObjectId.isValid(id)) {
             res.status(422).json({
                 message: "ID INVÁLIDO!"
             })

@@ -1,6 +1,7 @@
+<html>
 <div style="display: flex">
   <div class="mb-4 card" style="
-      width: 40%;
+      width: 100%;
       margin-left: -100px;
       align-content: center;
       height: 100%;
@@ -50,7 +51,7 @@
                     <div class="card-text" [ngClass]="{ limitTextHeight: isReadMore }">
                       <p innerHtml="{{post.texto}}"></p>
                     </div>
-                    <a href="javascript: void(0);" [routerLink]="['/post', post._id]" routerLinkActive="router-link-active" >Ler mais</a>
+                    <a href="javascript: void(0);" [routerLink]="['/post', post._id]" routerLinkActive="displayNone" >Ler mais</a>
                   </div>
                 </td>
               </tr>
@@ -446,3 +447,4 @@
     </c-card>
   </c-col>
 </c-row>
+

@@ -1,9 +1,32 @@
-<p>
-    <tr>
-        <td><img style="width: 250px; height: 150px" src="http://localhost:8080/images/blog/{{ ALLPOSTS.blog.images }}"></td>
-        <td><a innerHtml="{{ALLPOSTS.blog.titulo}}"></a></td>
-        <td><a innerHtml="{{ALLPOSTS.blog.texto}}"></a></td>
-    </tr>
-</p>
+<div>
+    <app-header-menu></app-header-menu>
 
+<header>
+    
+    <h1>{{ALLPOSTS.blog.titulo}}</h1>
+    <table align="left">
+        <tbody>
+            <tr>
+                <td> 
+                    <img class="imgu" src="http://localhost:8080/images/users/{{ ALLPOSTS.blog.user.image }}">
+                </td>
+                <td>
 
+                    <h5>Por {{ALLPOSTS.blog.user.name}}</h5>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>{{ ALLPOSTS.blog.updatedAt | date : "dd/MM/yyyy" : "" : "pt-BR" }}</h6>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <img src="http://localhost:8080/images/blog/{{ ALLPOSTS.blog.images }}">
+</header>
+<main>
+    <p innerHTML="{{ALLPOSTS.blog.texto}}"></p>
+</main>
+
+</div>

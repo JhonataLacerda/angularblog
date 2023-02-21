@@ -54,6 +54,7 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HeaderMenuComponent } from './containers/default-layout/header-menu/header-menu.component';
 
 
 
