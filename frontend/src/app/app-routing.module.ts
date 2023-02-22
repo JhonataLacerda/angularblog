@@ -8,8 +8,14 @@ import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { RegisterComponent } from './views/pages/register/register.component';
 import { PostagemComponent } from './views/pages/postagem/postagem.component';
+import { MainPageComponent } from './views/pages/main-page/main-page.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    component:MainPageComponent,
+  }
+  ,
   {
     path: '',
     redirectTo: '',

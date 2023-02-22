@@ -15,7 +15,8 @@ import { PostsComponent } from './posts/posts.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { PostagemComponent } from './postagem/postagem.component';
-import {HeaderMenuComponent, FooterMenuComponent} from '../../containers/default-layout'
+import {HeaderMenuComponent, FooterMenuComponent} from '../../containers/default-layout';
+import { MainPageComponent } from './main-page/main-page.component'
 
 @NgModule({
   declarations: [HeaderMenuComponent,
@@ -26,6 +27,7 @@ import {HeaderMenuComponent, FooterMenuComponent} from '../../containers/default
     Page500Component,
     PostsComponent,
     PostagemComponent,
+    MainPageComponent,
     
   ],
   providers: [AuthGuard],
